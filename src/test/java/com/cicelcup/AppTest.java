@@ -8,23 +8,20 @@ import io.cucumber.java.en.When;
 
 public class AppTest 
 {
-    public int result = 0;
-    public int a = 0;
-    public int b = 0;
+    public Calculator calculator;
+    public int result;
 
-    @Given("With two numbers 2,3")
+    @Given("I have a calculator")
     public void with_two_numbers() {
-        a = 2;
-        b = 3;
+        calculator = new Calculator();
     }
-    @When("add the numbers")
-    public void add_the_numbers() {
-        Calculator calculator = new Calculator();
-        result = calculator.add(a, b);
+    @When("I add <number1> and <number2>")
+    public void add_the_numbers(int number1, int number2) {
+        result = calculator.add(number1, number2);
     }
 
-    @Then("the result should be 5")
-    public void the_result_should_be() {
-        Assert.assertEquals(result, 5);
+    @Then("the result should be <sum>")
+    public void the_result_should_be(int sum) {
+        Assert.assertEquals(result, sum);
     }
 }
