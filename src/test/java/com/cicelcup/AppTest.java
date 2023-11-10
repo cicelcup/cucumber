@@ -15,12 +15,12 @@ public class AppTest
     public void with_two_numbers() {
         calculator = new Calculator();
     }
-    @When("I add <number1> and <number2>")
+    @When("I add {int} and {int}")
     public void add_the_numbers(int number1, int number2) {
         result = calculator.add(number1, number2);
     }
 
-    @Then("the result should be <sum>")
+    @Then("the result should be {int}")
     public void the_result_should_be(int sum) {
         Assert.assertEquals(result, sum);
     }
